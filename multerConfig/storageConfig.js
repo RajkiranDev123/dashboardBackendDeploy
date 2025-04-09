@@ -1,14 +1,17 @@
 import multer from "multer"
-
+import fs from "fs"
 //Multer adds a file object to the request object. (req.file.filename)
 const storage = multer.diskStorage(
     {
         destination: (req, file, callback) => {
-            callback(null, process.cwd()+"./uploads")
+            if (!fs.existsSync("uploads")) {
+                fs.mkdirSync("uploads")
+            }
+            callback(null, "./uploads")
         },
         // add filename property to req.file object ==> req.file={filename:"M.jpg"}
         filename: (req, file, callback) => {
-            console.log("file from multer check==>",file)
+            console.log("file from multer check==>", file)
             //Date. now() returns the number of milliseconds since January 1, 1970.
             const noOfMilliseconds = Date.now();
             const time = new Date(noOfMilliseconds).toString().split(" ").join("-").split("-")[4].split(":").join("")
