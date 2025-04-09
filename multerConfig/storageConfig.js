@@ -4,7 +4,7 @@ import multer from "multer"
 const storage = multer.diskStorage(
     {
         destination: (req, file, callback) => {
-            callback(null, "./uploads")
+            callback(null, process.cwd()+"./uploads")
         },
         // add filename property to req.file object ==> req.file={filename:"M.jpg"}
         filename: (req, file, callback) => {
