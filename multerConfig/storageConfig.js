@@ -8,7 +8,7 @@ const storage = multer.diskStorage(
         },
         // add filename property to req.file object ==> req.file={filename:"M.jpg"}
         filename: (req, file, callback) => {
-            console.log("file from multer==>",file)
+            console.log("file from multer check==>",file)
             //Date. now() returns the number of milliseconds since January 1, 1970.
             const noOfMilliseconds = Date.now();
             const time = new Date(noOfMilliseconds).toString().split(" ").join("-").split("-")[4].split(":").join("")
