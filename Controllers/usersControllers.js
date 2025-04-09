@@ -32,7 +32,7 @@ export const userRegister = async (req, res) => {
             return res.status(201).json(userData)
         }
     } catch (error) {
-        // console.log(error.message)
+        console.log(error.message)
         return res.status(500).json(error.message)
     }
 }
