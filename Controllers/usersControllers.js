@@ -19,6 +19,7 @@ export const userRegister = async (req, res) => {
         } else {
             const dateCreated = moment(new Date()).format("YYYY-MM-DD hh:mm:ss")
             console.log("date created ==>", dateCreated)// is of string type
+            console.log("check dir of backend",process.cwd())
             const uploadImage = await uploadOnCloudinary(process.cwd() + "/uploads/" + file)
             //////////////////////////////////////////// server/uploads/image2536.jpg
             if (!uploadImage) {
