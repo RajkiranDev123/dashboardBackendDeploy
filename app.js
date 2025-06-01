@@ -18,7 +18,7 @@ const app = express()
 // rate limiting : securing api's
 const limiter = rateLimit({
     windowMs: 1 * 60 * 1000,//within 1 min
-    max: 50,//50 reqs
+    max: 100,//50 reqs
     handler: function(req, res) {
       res.status(429).json("Too many requests!");
     },
